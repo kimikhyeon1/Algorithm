@@ -4,7 +4,7 @@ def solution(n, arr1, arr2):
     change_int_array = []
 
     for i in range(n):
-        change_int1 = format(arr1[i],"b")
+        change_int1 = format(arr1[i], "b")
         change_int2 = format(arr2[i], "b")
         if len(change_int1) ==n-1:
             array1.append("0" + change_int1)
@@ -19,26 +19,26 @@ def solution(n, arr1, arr2):
             count = n-len(change_int_array[i])
             change_int_array[i]="0"*count +change_int_array[i]
 
-    last_answer = ""
+    str_space = ""
 
     for i in range(len(change_int_array)):
         for j in range(n):
             if int(change_int_array[i][j]) >=1:
-                last_answer+= "#"
+                str_space+= "#"
             else:
-                last_answer+= " "
+                str_space+= " "
     count = 0
     text = ""
-    ze = []
-    while count < len(last_answer):
+    answer = []
+    while count < len(str_space):
         if count%n == 0 and count:
-            ze.append(text)
+            answer.append(text)
             text=""
 
-        text += last_answer[count]
+        text += str_space[count]
         count+=1
 
-        if count== len(last_answer):
-            ze.append(text)
+        if count== len(str_space):
+            answer.append(text)
 
-    return ze
+    return answer
