@@ -5,7 +5,8 @@ class Solution {
         int sum = 0;
         for (int i = 0; i < string.length(); i++) {
             char ch = string.charAt(i);
-            int num = Character.getNumericValue(ch);
+            int num = (int)ch-48;
+            System.out.println(num);
             sum += num;
         }
         if (x%sum ==0){
