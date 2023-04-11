@@ -1,45 +1,51 @@
-
+import sys
 from collections import deque
 
+input = sys.stdin.readline
 
+m,n = map(int,input().split())
 
-def bfs(x,y):
-    each = 1
+graph = [list(map(int,input().split())) for _ in range(m)]
+visit = [[False]*n for _ in range(m) ]
+
+max_num=0
+count=0
+
+dx = [0,1,0,-1]
+dy = [1,0,-1,0]
+
+def BFS(i,j):
     queue = deque()
-    queue.append((x,y))
-    visited[x][y] = True
+    queue.append((i,j))
+    num = 1
 
     while queue:
-        x,y = queue.popleft()
+        y,x = queue.popleft()
 
-        for i in range(4):
-            nx = x +dx[i]
-            ny = y +dy[i]
+        for k in range(4):
+            nx = x+ dx[k]
+            ny = y+ dy[k]
 
-            if 0<=nx<n and 0<=ny<m:
-                if array[nx][ny] ==1 and not visited[nx][ny]:
-                    visited[nx][ny] = True
-                    each +=1
-                    queue.append((nx,ny))
-
-    return each
+            if  0<= nx < n and 0 <= ny < m:
+                if visit[ny][nx]==False and graph[ny][nx]==1:
+                    queue.append((ny,nx))
+                    visit[ny][nx] = True
+                    num+=1
 
 
-n,m = map(int,input().split())
-visited = [[False] * m for _ in range(n)]
-array = [list(map(int, input().split())) for _ in range(n)]
-
-dx = [1,0,-1,0]
-dy = [0,1,0,-1]
-cnt , maxcnt =0,0
-for i in range(n):
-    for j in range(m):
-        if array[i][j]==1 and not visited[i][j]:
-            cnt+=1
-            maxcnt = max(maxcnt , bfs(i,j))
+    return num
 
 
 
+for i in range(m):
+    for j in range(n):
+        if graph[i][j] == 1 and visit[i][j] == False:
+            visit[i][j] = True
+            count+=1
+            max_num=max(max_num,BFS(i,j))
 
-print(cnt)
-print(maxcnt)
+print(count)
+print(max_num)
+
+
+
