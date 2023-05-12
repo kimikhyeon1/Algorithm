@@ -17,7 +17,6 @@ def bfs(index,csum):
         bfs(i+1,csum+array[i])
         count-=1
 
-
 bfs(0,0)
 
 print(answer)
