@@ -1,17 +1,13 @@
 from collections import deque
 
-def bfs(node):
+def dfs(node):
     global answer, tree, visit
-    queae = deque()
-    queae.append(node)
-    answer += 1 
     
-    while queae:
-        num = queae.popleft()
-        for i in tree[num]:
-            if not visit[i]:
-                visit[i] = True
-                queae.append(i)
+    for i in tree[node]:
+        if not visit[i]:
+            visit[i] = True
+            dfs(i)
+        
 
 
 def solution(n, computers):
@@ -27,6 +23,7 @@ def solution(n, computers):
     for i in range(1,n+1):
         for j in tree[i]:
             if visit[j] == False:
-                bfs(i)
+                answer += 1
+                dfs(i)
                 
     return  answer
