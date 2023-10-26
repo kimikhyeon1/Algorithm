@@ -3,7 +3,7 @@ class MyCircularQueue:
     def __init__(self, k: int):
         self.front = 0
         self.rear = 0
-        self.que = [0] * k  
+        self.que = [None] * k  
         self.max_len = k 
         
 
@@ -17,7 +17,7 @@ class MyCircularQueue:
 
     def deQueue(self) -> bool:
         if not self.isEmpty():
-            self.que[self.front] = 0
+            self.que[self.front] = None
             self.front = (self.front +1) % self.max_len
             return True
         else:
@@ -36,11 +36,11 @@ class MyCircularQueue:
             return self.que[self.rear - 1]
 
     def isEmpty(self) -> bool:
-        return self.front == self.rear and self.que[self.front] == 0
+        return self.front == self.rear and self.que[self.front] == None
         
 
     def isFull(self) -> bool:
-        return self.front == self.rear and self.que[self.front] != 0
+        return self.front == self.rear and self.que[self.front] != None
         
 
 
