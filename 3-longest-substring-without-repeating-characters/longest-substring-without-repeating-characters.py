@@ -1,18 +1,15 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        array = deque()
-        answer = 0
-        target = 0
+        dic = {}
+        max_len = start = 0
 
-        while target < len(s):
-            if s[target] in array:
-                answer = max(answer, len(array))
-                array.popleft()
-                continue
+        for index, char in enumerate(s):
+            if char in dic and start <= dic[char]:
+                start = dic[char] + 1
+            else:
+                max_len = max(max_len,index - start + 1)
             
-            array.append(s[target])
-            target += 1
-
-        return max(answer, len(array))
-
-
+            dic[char] = index
+        
+        return max_len
+ 
