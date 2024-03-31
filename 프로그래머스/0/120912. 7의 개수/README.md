@@ -1,6 +1,6 @@
 # [level 0] 7의 개수 - 120912 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120912?language=python3) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120912) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 03월 09일 20:30:33
+2024년 03월 31일 18:52:17
 
 ### 문제 설명
 
