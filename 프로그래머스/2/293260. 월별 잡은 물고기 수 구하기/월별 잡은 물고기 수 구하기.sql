@@ -1,0 +1,10 @@
+-- 코드를 작성해주세요
+SELECT
+    COUNT(*) AS FISH_COUNT,
+    DATE_FORMAT(TIME,'%c') * 1 as MONTH
+FROM 
+    FISH_INFO
+GROUP BY 
+    MONTH
+ORDER BY 
+    MONTH ASC;
